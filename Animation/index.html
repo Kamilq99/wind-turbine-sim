@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCADA Turbine Control</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Nasz plik CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-200 flex flex-col items-center justify-center min-h-screen">
+    <!-- Nagłówek -->
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-100">Panel Sterowania Turbiną</h1>
+    
+    <!-- Animacja Turbiny -->
+    <div id="turbine" class="relative w-64 h-64 mb-10">
+        <div class="blade" style="transform: rotate(0deg);"></div>
+        <div class="blade" style="transform: rotate(120deg);"></div>
+        <div class="blade" style="transform: rotate(240deg);"></div>
+    </div>
+
+    <!-- Panel Sterowania -->
+    <div id="control-panel" class="bg-gray-800 p-6 rounded-lg shadow-md mb-6 w-80 text-center">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-100">Panel Sterowania</h2>
+        <button onclick="toggleTurbine()" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition mb-4 w-full">
+            Włącz/Wyłącz Turbinę
+        </button>
+        <input type="number" id="targetSpeed" placeholder="Ustaw prędkość" class="bg-gray-700 border border-gray-600 p-2 rounded w-full text-gray-100 placeholder-gray-400 mb-4" />
+        <button onclick="setSpeed()" class="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 transition w-full">
+            Ustaw prędkość
+        </button>
+    </div>
+
+    <!-- Status Turbiny -->
+    <div id="status" class="bg-gray-800 p-6 rounded-lg shadow-md w-80 text-center">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-100">Status Turbiny</h3>
+        <div class="space-y-2">
+            <p>Status: <span id="turbineStatus" class="font-bold text-green-400">OFF</span></p>
+            <p>Prędkość: <span id="currentSpeed" class="font-bold text-green-400">0</span> RPM</p>
+            <p>Energia: <span id="currentEnergy" class="font-bold text-green-400">0</span> kW</p>
+        </div>
+    </div>
+
+    <!-- Nasz plik JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
