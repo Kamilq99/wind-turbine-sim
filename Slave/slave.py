@@ -5,7 +5,7 @@ import random  # Moduł do generowania losowych liczb
 
 # Ustawienia adresu IP i portu serwera SCADA
 SERVER_IP = 'localhost'  # Adres IP serwera SCADA
-SERVER_PORT = 5020  # Port serwera SCADA
+SERVER_PORT = 502  # Port serwera SCADA
 
 # Funkcja do komunikacji z serwerem SCADA
 def run_plc_client():
