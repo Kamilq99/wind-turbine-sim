@@ -20,13 +20,13 @@ def run_plc_client():
     try:
         while True:
             # Odczyt statusu turbiny
-            status_response = client.read_holding_registers(0, 1)  # Status turbiny w rejestrze 0
+            status_response = client.read_holding_registers(0, count=1)  # Status turbiny w rejestrze 0
             if not status_response.isError():
                 turbine_status = status_response.registers[0]
                 print(f"Turbine Status: {'ON' if turbine_status else 'OFF'}")
 
                 if turbine_status == 1:
-                    speed_response = client.read_holding_registers(1, 1)  # Odczyt prędkości docelowej
+                    speed_response = client.read_holding_registers(1, count=1)  # Odczyt prędkości docelowej
                     if not speed_response.isError():
                         target_speed = speed_response.registers[0]
                         print(f"Target Speed: {target_speed}")
